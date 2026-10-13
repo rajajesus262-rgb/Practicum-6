@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitSphere - Positioning Elements</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f1f5f2;
+        }
+
+        h2 {
+            color: #1b4332;
+        }
+
+        .fitness-box {
+            position: relative;
+            width: 100%;
+            height: 330px;
+            background: linear-gradient(
+                rgba(20, 60, 40, 0.55),
+                rgba(20, 60, 40, 0.55)
+            ), url("C:\practicum web tech screencode\logo for fitsphere.png");
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .position {
+            position: absolute;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 10px;
+        }
+
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
+
+        .bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #2d6a4f;
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            margin: 4px 2px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #1b4332;
+        }
+
+        #message {
+            color: #1b4332;
+            font-weight: bold;
+            margin-top: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .fitness-box {
+                height: 280px;
+            }
+
+            .position {
+                font-size: 14px;
+                padding: 5px;
+            }
+
+            button {
+                padding: 9px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>FitSphere Fitness - Positioning Elements</h2>
+
+    <div class="fitness-box" id="fitnessBox">
+
+        <div class="position top-left">
+            Top Left
+        </div>
+
+        <div class="position top-right">
+            Top Right
+        </div>
+
+        <div class="position bottom-left">
+            Bottom Left
+        </div>
+
+        <div class="position bottom-right">
+            Bottom Right
+        </div>
+
+        <div class="position center" id="centerText">
+            <h2 style="color: white;">FitSphere Fitness</h2>
+            <p>Stronger • Healthier • Happier</p>
+        </div>
+
+    </div>
+
+    <h3>Try It Yourself:</h3>
+
+    <div class="buttons">
+        <button onclick="moveText('top-left')">Top Left »</button>
+        <button onclick="moveText('top-right')">Top Right »</button>
+        <button onclick="moveText('bottom-left')">Bottom Left »</button>
+        <button onclick="moveText('bottom-right')">Bottom Right »</button>
+        <button onclick="moveText('center')">Centered »</button>
+    </div>
+
+    <p id="message">Click a button to change the FitSphere title position.</p>
+
+    <script>
+        function moveText(position) {
+            const text = document.getElementById("centerText");
+
+            text.className = "position " + position;
+
+            document.getElementById("message").textContent =
+                "FitSphere title moved to " +
+                position.replace("-", " ") + " position.";
+        }
+    </script>
+
+</body>
+</html>
